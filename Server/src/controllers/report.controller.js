@@ -3,17 +3,19 @@ import { reportModel } from "../models/report.model.js";
 // function to get all the data
 export const getAllData = async (req, res) => {
     try {
-        const allData = await reportModel.find();
-        if (!allData || allData.length === 0) {
+        const data = await reportModel.find();
+       
+        if (!data || data.length === 0) {
             return res.status(400).json({
                 success: false,
                 message: "No data found"
             })
         }
+        
         return res.status(200).json({
             success: true,
             message: "All data",
-            data: allData
+            data
         })
     } catch (e) {
         return res.status(500).json({
@@ -363,6 +365,7 @@ export const filteredByAny = async (req, res) => {
             return res.status(400).json({
                 success: false,
                 message: "No Data Found",
+                data : null
             })
         }
         return res.status(200).json({

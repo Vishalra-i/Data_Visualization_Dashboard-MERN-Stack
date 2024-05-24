@@ -38,7 +38,7 @@ router.get("/intensity/:intensity", filteredByIntensity)
 router.get("/likelihood/:likelihood", filteredByLikelihood)
 
 // api to get data filtered by any
-router.get("/any/:search", filteredByAny)
+router.get("/search/:search", filteredByAny)
 
 
 export default router;
